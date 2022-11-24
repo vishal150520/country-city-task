@@ -1,0 +1,19 @@
+<?php   
+    $query ="select default_name from  directory_country_region_name";
+    $result = $conn->query($query);
+    if($result->num_rows> 0){
+      $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+  
+?>
+<select name="states">
+   <option>States</option>  
+  <?php 
+  foreach ($options as $option) {
+  ?>
+    <option><?php echo $option['default_name']; ?> </option>
+    
+    <?php 
+    }
+   ?>
+</select>
